@@ -13,8 +13,23 @@ public class Variable {
 
 
 
-    System.out.printf("%s : Employed : %b Gender %c, %d , Salary %f",name, employeed, gender, year, salary);
+    System.out.printf("%s : Employed : %b Gender %c, %d , Salary %f \n\n",name, employeed, gender, year, salary);
+    
+
+    System.out.printf("%8.2f\n", salary);
+    System.out.printf("%7.2f\n", salary);
+
+    System.out.printf("%s\n", name);
+    System.out.printf("%5s\n", name);
+    System.out.printf("%10s\n", name);
+
+    System.out.printf(" \"%7.2f\" \n", salary);
+
+    salary = 1;
+    employeed = salary > 0 ? true:false;
+
+    System.out.printf("%b", employeed);
+    
+
     }
-
-
 }
