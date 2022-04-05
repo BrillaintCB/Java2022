@@ -33,5 +33,3 @@ public class Pay {
         System.out.println(pay);
       }
     }
-
-}
