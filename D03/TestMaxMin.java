@@ -1,7 +1,6 @@
 package D03;
 
 import java.util.Calendar;
-import java.util.concurrent.Callable;
 
 public class TestMaxMin {
     public static void main(String[] args) {
@@ -19,7 +18,7 @@ public class TestMaxMin {
 
         String getGender(String reg){
             String gender = reg.substring(7,8) == "1" ? "Male" : "Female"; 
-            
+
             if(reg.substring(7,8)=="1"|| reg.substring(7,8)=="3"){
                 gender = "Male";
             } 
