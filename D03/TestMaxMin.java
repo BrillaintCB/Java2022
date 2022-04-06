@@ -4,26 +4,47 @@ import java.util.Calendar;
 import java.util.concurrent.Callable;
 
 public class TestMaxMin {
-
-
-   
-
     public static void main(String[] args) {
-
-        
         class Customer{
-
             String name;
             String phone;
             String address;
             String regidentNum;
-
-
             public Customer(String name, String phone, String address, String regidentNum){
                 this.name = name;
                 this. phone = phone;
                 this.address = address;
                 this.regidentNum = regidentNum;
+            }
+
+        String getGender(String reg){
+            String gender = reg.substring(7,8) == "1" ? "Male" : "Female"; 
+            
+            if(reg.substring(7,8)=="1"|| reg.substring(7,8)=="3"){
+                gender = "Male";
+            } 
+            else{
+                gender = "Female";
+            }
+            return gender;
+        }
+
+        void print(Customer c){
+                Calendar calendar = Calendar.getInstance();
+                int currentYear = calendar.get(Calendar.YEAR); 
+                int bornYear = 0;
+                int regidentNum = Integer.parseInt(c.regidentNum.substring(0,2));
+                String currentYear2 = Integer.toString(currentYear).substring(2,4);
+                if(regidentNum> Integer.parseInt(currentYear2)){
+                    bornYear = 1900+regidentNum;
+                }else{
+                    bornYear = 2000+regidentNum;
+                }
+                int age = 0;
+                age = currentYear-bornYear;            
+                //String gender = "male";
+                String gender = getGender(c.regidentNum);
+                System.out.printf("name %s\n phone : %s\n address %s\n age %d\n gender %s\n", c.name, c.phone, c.address, age, gender);
             }
         }
         //T1
@@ -52,7 +73,6 @@ public class TestMaxMin {
          }
          System.out.println("T2==============\n");
          System.out.printf("Min %.2f\nMax %.2f", min,max);
-
          //T3
          int nums[] = {-1,-5,-4,3,-2,1,-8,-2};
          System.out.println("T3==============\n");
@@ -65,24 +85,13 @@ public class TestMaxMin {
                 System.out.println(nums[i]);
             }
          }
-
-         //T4
-    // Customer c1 = new Customer("CB", "0411280814", "137 Newcastle Street", "910101-1111111");
-    // Customer c1 = new Customer("Emliy", "032323234", "100 Newcastle Street", "000211-2111111");
-       Customer c1 = new Customer("Emliy", "032323234", "100 Newcastle Street", "220211-2111111");
-
-        int bornYear = 0;
-        int regidentNum = Integer.parseInt(c1.regidentNum.substring(0,2));
+         //T4 //T8
+        Customer cb = new Customer("CB", "0411280814", "31 Newcastle Street", "910101-18888888");
+        Customer emliy = new Customer("Emliy", "032323234", "22 Newcastle Street", "000211-2333333");
+        Customer baby = new Customer("baby", "032323234", "0 Newcastle Street", "220211-44444444");
         System.out.println("T4==============\n");
-        int age = 0;
-        Calendar calendar = Calendar.getInstance();
-        int currentYear = calendar.get(Calendar.YEAR); 
-        if(regidentNum>currentYear){
-            bornYear = 1900+regidentNum;
-        }else{
-            bornYear = 2000+regidentNum;
-        }
-        age = currentYear-bornYear;
-        System.out.printf("name %s\n phone : %s\n address %s\n age %d\n", c1.name, c1.phone, c1.address, age);
+        cb.print(cb);
+        emliy.print(emliy);
+        baby.print(baby);
     }
 }
