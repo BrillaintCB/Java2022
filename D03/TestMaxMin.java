@@ -17,9 +17,22 @@ public class TestMaxMin {
             }
 
         String getGender(String reg){
-            String gender = reg.substring(7,8) == "1" ? "Male" : "Female"; 
+           // String gender = reg.substring(7,8) == "1" ? "Male" : "Female"; 
 
-            if(reg.substring(7,8)=="1"|| reg.substring(7,8)=="3"){
+            //System.out.print(reg.substring(7,8).getClass().getSimpleName());
+            //System.out.print("=");
+            //System.out.print("1".getClass().getSimpleName());
+           // System.out.print("1".getClass().getSimpleName());
+
+
+
+            System.out.print("Comparison================== Start");
+            System.out.print("1".hashCode()+"\t");
+            System.out.print(reg.substring(7,8).hashCode());
+            System.out.print("Comparison================== End");
+          
+            String gender = "";
+            if(reg.substring(7,8).equals("1")|| reg.substring(7,8).equals("3")){
                 gender = "Male";
             } 
             else{
